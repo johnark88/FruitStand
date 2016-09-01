@@ -1,10 +1,14 @@
 console.log('JS file ready for execution master');
-var multiplier;
-var priceChanged;
+var multiplier = 0;
+var priceChanged = 0;
 //Starting Price of Fruit
 var startingPrice = (50 + Math.floor(Math.random()* 949))/100;
 var currentPrice = startingPrice;
 var fruits =[ "apples", "bananas", "oranges", "grapes"];
+
+$(document).ready(function(){
+  $('p').html(formatUSD(startingPrice));
+});
 
 console.log(startingPrice);
 console.log('currentPrice:', currentPrice);
@@ -51,27 +55,31 @@ var totalSeconds = 0;
 var  clock = setInterval(setTime, 1000);
  function setTime(){
   ++totalSeconds;
-  time.innerHTML = (totalSeconds);
+  console.log(totalSeconds);
   if( totalSeconds%5 === 0){
     for (var i = 0; i < fruits.length; i++) {
-    priceChanger();
-    currentPrice += priceChanged;
-    console.log('Current Price of ' + fruits[ i ] +' is now:', currentPrice);
-    }
-  }
-  else if( totalSeconds == 300){
+      priceChanger();
+      currentPrice += priceChanged;
+      if(currentPrice > 9.99){
+        currentPrice = 9.99;
+      }//if statement
+      if( currentPrice< 0.50){
+        currentPrice = 0.50;
+      }// if
+      console.log('Current Price of ' + fruits[ i ] +' is now:', currentPrice);
+      $('#'+ fruits[ i ] +'Price').html(formatUSD(currentPrice));
+    }//end for loop
+  }//if statement
+
+  else if( totalSeconds === 10){
     alert("You are out of time");
     stopClock(clock);
-    $('#time').empty();
-    $('#time').html('<button onClick="shopAgain()">Shop Again?</button>');
-  }
-}
-};
+
+  }// last else if statement
+}// set time function
+};//end of timer function
 
 timer();
-var shopAgain = function(){
-  console.log('It Works');
-};
 var stopClock= function(index){
   clearInterval(index);
 };
