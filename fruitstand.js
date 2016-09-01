@@ -71,7 +71,7 @@ var  clock = setInterval(setTime, 1000);
     }//end for loop
   }//if statement
 
-  else if( totalSeconds === 10){
+  else if( totalSeconds === 301){
     alert("You are out of time");
     stopClock(clock);
 
