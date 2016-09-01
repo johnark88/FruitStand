@@ -5,11 +5,12 @@ var priceChanged = 0;
 var startingPrice = (50 + Math.floor(Math.random()* 949))/100;
 var currentPrice = startingPrice;
 var fruits =[ "apples", "bananas", "oranges", "grapes"];
+var wallet = 100;
 
 $(document).ready(function(){
   $('p').html(formatUSD(startingPrice));
+  $('#wallet').html('<p>' +formatUSD(wallet) +'</p>');
 });
-
 console.log(startingPrice);
 console.log('currentPrice:', currentPrice);
 
@@ -56,7 +57,7 @@ var  clock = setInterval(setTime, 1000);
  function setTime(){
   ++totalSeconds;
   console.log(totalSeconds);
-  if( totalSeconds%5 === 0){
+  if( totalSeconds%15 === 0){
     for (var i = 0; i < fruits.length; i++) {
       priceChanger();
       currentPrice += priceChanged;
@@ -68,6 +69,7 @@ var  clock = setInterval(setTime, 1000);
       }// if
       console.log('Current Price of ' + fruits[ i ] +' is now:', currentPrice);
       $('#'+ fruits[ i ] +'Price').html(formatUSD(currentPrice));
+
     }//end for loop
   }//if statement
 
