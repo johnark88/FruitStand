@@ -1,4 +1,37 @@
 img{
-width: 50px;
-length: 50px;
+width: 110px;
+length: 110px;
+border: 3px solid #7D7A87;
+border-radius: 30px;
+}
+
+button {
+  margin: 0px auto;
+  width: 110px;
+}
+
+#applesPrice, #orangesPrice, #bananasPrice, #grapesPrice {
+  margin: 0px auto 0px auto;
+}
+
+#apples, #oranges, #bananas, #grapes {
+  margin: 20px auto 20px auto;
+}
+
+#buybananas {
+  background-color: #FFD909;
+  border-color: #D1A228;
+}
+
+#buybananas:hover{
+  background-color: #CCB727;
+}
+
+#buygrapes {
+  background-color: #B53F70;
+  border-color: #9a2235;
+}
+
+#buygrapes:hover{
+  background-color: #91335A;
 }

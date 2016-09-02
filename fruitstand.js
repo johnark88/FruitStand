@@ -1,16 +1,42 @@
 console.log('JS file ready for execution master');
 var multiplier = 0;
 var priceChanged = 0;
+var fruits =[ "apples", "bananas", "oranges", "grapes"];
+
+var wallet = 100;
+
+
 //Starting Price of Fruit
 var startingPrice = (50 + Math.floor(Math.random()* 949))/100;
 var currentPrice = startingPrice;
-var fruits =[ "apples", "bananas", "oranges", "grapes"];
-var wallet = 100;
 
 $(document).ready(function(){
   $('p').html(formatUSD(startingPrice));
   $('#wallet').html('<p>' +formatUSD(wallet) +'</p>');
+
+  // /apples onClick
+  $('#apples').on('click', 'button', function(){
+    console.log('in apples onClick');
+
+  });
+
+  //oranges onClick
+  $('#oranges').on('click', 'button', function(){
+    console.log('in oranges onClick');
+  });
+
+  //bananas on Click
+  $('#bananas').on('click', 'button', function(){
+    console.log('in bananas onClick');
+  });
+
+  //grapes onClick
+  $('#grapes').on('click', 'button', function(){
+    console.log('in grapes onClick');
+  });
 });
+
+
 console.log(startingPrice);
 console.log('currentPrice:', currentPrice);
 
@@ -28,7 +54,6 @@ var positNeg = function () {
 };
 
 
-
 //price Changer turns random number to cents and positive or negative
 var priceChanger = function () {
   //Random price increase
@@ -39,16 +64,6 @@ var priceChanger = function () {
   // console.log('priceChanged' , priceChanged);
   console.log('Random Number =', priceChanged);
   };
-
-
-
-
-
-//Format numbers to USD
-function formatUSD(dollarAmount){
-  return dollarAmount.toLocaleString('USD', {style: 'currency', currency: 'USD'});
-}//end USD Format
-
 
 ////////////TIMER FUNCTION////////////////
 var timer = function() {
@@ -85,3 +100,8 @@ timer();
 var stopClock= function(index){
   clearInterval(index);
 };
+
+//Format numbers to USD via Millie
+function formatUSD(dollarAmount){
+  return dollarAmount.toLocaleString('USD', {style: 'currency', currency: 'USD'});
+}//end USD Format
